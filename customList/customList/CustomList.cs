@@ -22,8 +22,28 @@ namespace customList
         T[] underlyingArray;
         public T this[int index]
         {
-            get { return underlyingArray[index]; }
-            set { underlyingArray[index] = value; }
+            get
+            {
+                if (0 <= index && index < count)
+                {
+                    return underlyingArray[index];
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
+            set
+            {
+                if (0 <= index && index < count)
+                {
+                    underlyingArray[index] = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
         }
 
         //Constructor

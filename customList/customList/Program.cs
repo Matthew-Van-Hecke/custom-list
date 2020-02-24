@@ -15,7 +15,8 @@ namespace customList
             intList.Add(6);
             intList.Add(78);
             intList.Add(34);
-            intList.Remove(6);
+            Console.WriteLine(intList[4]);
+            Console.ReadLine();
         }
     }
 }
