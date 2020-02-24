@@ -9,12 +9,16 @@ namespace customList
     public class CustomList<T>
     {
         //Member Variables
-        int currentIndex;
+        int count;
+        public int Count
+        {
+            get { return count; }
+        }
         T[] underlyingArray;
         //Constructor
         public CustomList()
         {
-            currentIndex = 0;
+            count = 0;
             underlyingArray = new T[4];
         }
         //Member Methods
@@ -22,9 +26,13 @@ namespace customList
         {
             //Count should increment
             //Added item should be put in the next slot
-
+            underlyingArray[count] = item;
             //If the array is full, copy the values over to a new array of twice the size, and insert the newest value to be added at the next index
-            currentIndex++;
+            if (count == underlyingArray.Length - 1)
+            {
+                doubleLengthOfUnderlyingArray();
+            }
+            count++;
         }
         public void doubleLengthOfUnderlyingArray()
         {
