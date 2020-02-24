@@ -100,5 +100,14 @@ namespace customList
                 arrayToBeCopiedTo[i] = arrayToBeCopiedFrom[i];
             }
         }
+        public override string ToString()
+        {
+            string result = "";
+            for (int i = 0; i < Count; i++)
+            {
+                result += underlyingArray[i].ToString();
+            }
+            return result;
+        }
     }
 }

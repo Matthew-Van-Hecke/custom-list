@@ -252,5 +252,25 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, customList.Capacity);
         }
+        [TestMethod]
+        public void ToString_ThreeNumbers_ConcatinatesTheStringVersionsOfTheNumbers()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int valueToAdd1 = 30;
+            int valueToAdd2 = 31;
+            int valueToAdd3 = 75;
+            int valueToAdd4 = 12;
+            string expected = "30317512";
+            string actual;
+            //Act
+            customList.Add(valueToAdd1);
+            customList.Add(valueToAdd2);
+            customList.Add(valueToAdd3);
+            customList.Add(valueToAdd4);
+            actual = customList.ToString();
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace customList
             intList.Add(6);
             intList.Add(78);
             intList.Add(34);
-            Console.WriteLine(intList[4]);
+            Console.WriteLine(intList.ToString());
             Console.ReadLine();
         }
     }
