@@ -500,5 +500,55 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, resultingList.Count);
         }
+        [TestMethod]
+        public void MinusOperatorOverload_SubtractOneListFromAnother_CountEqualsTwo()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 2;
+            int listTwoValueThree = 6;
+            int expected = 2;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            resultingList = listOne - listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList.Count);
+        }
+        [TestMethod]
+        public void MinusOperatorOverload_SubtractOneListFromAnother_ValueAtIndexOneEqualsThree()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 2;
+            int listTwoValueThree = 6;
+            int expected = 3;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            resultingList = listOne - listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList[1]);
+        }
     }
 }
