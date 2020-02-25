@@ -1,0 +1,49 @@
+CustomList<T> Minus Operator Overload
+
+Removes any items that occur in the second list from the first list.
+-------------------------------------------------------------------------------------
+public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo);
+-------------------------------------------------------------------------------------
+
+PARAMETERS:
+CustomList<T> listOne
+The list to subtract from
+
+CustomList<T> listTwo
+The list to be subtracted
+
+RETURNS:
+CustomList<T>
+This operator will return a list containing every element contained in listOne except those which are also contained in listTwo.
+
+EXAMPLE:
+----------------------------------------------------------
+CustomList<string> toDoList = new CustomList<string>();
+CustomList<string> thingsIveDoneToday = new CustomList<string>();
+CustomList<string> remainingTasksToday;
+toDoList.Add("Make Bed");
+toDoList.Add("Make Breakfast");
+toDoList.Add("Eat Breakfast");
+toDoList.Add("Brush Teeth");
+toDoList.Add("Walk Dog");
+toDoList.Add("Go To Work");
+toDoList.Add("8:30 Meeting");
+
+thingsIveDoneToday.Add("Make Breakfast");
+thingsIveDoneToday.Add("Eat Breakfast");
+thingsIveDoneToday.Add("Walk Dog");
+
+remainingTasksToday = toDoList - thingsIveDoneToday;
+
+for (int i = 0; i < remainingTasksToday.Count; i++)
+{
+	Console.WriteLine(remainingTasksToday[i]);
+}
+
+PRINTS THE FOLLOWING TO THE CONSOLE:
+-----------------------------------
+
+Make Bed
+Brush Teeth
+Go To Work
+8:30 Meeting

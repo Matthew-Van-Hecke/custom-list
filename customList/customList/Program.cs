@@ -10,25 +10,27 @@ namespace customList
     {
         static void Main(string[] args)
         {
-                //Arrange
-                CustomList<int> listOne = new CustomList<int>();
-                CustomList<int> listTwo = new CustomList<int>();
-                CustomList<int> resultingList;
-                int listOneValueOne = 1;
-                int listOneValueTwo = 2;
-                int listOneValueThree = 3;
-                int listTwoValueOne = 4;
-                int listTwoValueTwo = 5;
-                int listTwoValueThree = 6;
-                //Act
-                listOne.Add(listOneValueOne);
-                listOne.Add(listOneValueTwo);
-                listOne.Add(listOneValueThree);
-                listTwo.Add(listTwoValueOne);
-                listTwo.Add(listTwoValueTwo);
-                listTwo.Add(listTwoValueThree);
-                resultingList = listOne.Zip(listTwo);
-            Console.WriteLine(resultingList.ToString());
+            CustomList<string> toDoList = new CustomList<string>();
+            CustomList<string> thingsIveDoneToday = new CustomList<string>();
+            CustomList<string> remainingTasksToday;
+            toDoList.Add("Make Bed");
+            toDoList.Add("Make Breakfast");
+            toDoList.Add("Eat Breakfast");
+            toDoList.Add("Brush Teeth");
+            toDoList.Add("Walk Dog");
+            toDoList.Add("Go To Work");
+            toDoList.Add("8:30 Meeting");
+
+            thingsIveDoneToday.Add("Make Breakfast");
+            thingsIveDoneToday.Add("Eat Breakfast");
+            thingsIveDoneToday.Add("Walk Dog");
+
+            remainingTasksToday = toDoList - thingsIveDoneToday;
+
+            for (int i = 0; i < remainingTasksToday.Count; i++)
+            {
+                Console.WriteLine(remainingTasksToday[i]);
+            }
             Console.ReadLine();
         }
     }
