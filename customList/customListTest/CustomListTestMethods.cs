@@ -550,5 +550,190 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, resultingList[1]);
         }
+        //[TestMethod]
+        //public void Zip_ZipTwoListsOfEqualCountTogether_CountOfResultingListEqualsSumOfCountsOfTwoComponentLists()
+        //{
+        //    //Arrange
+        //    CustomList<int> listOne = new CustomList<int>();
+        //    CustomList<int> listTwo = new CustomList<int>();
+        //    CustomList<int> resultingList;
+        //    int listOneValueOne = 1;
+        //    int listOneValueTwo = 3;
+        //    int listOneValueThree = 5;
+        //    int listTwoValueOne = 2;
+        //    int listTwoValueTwo = 4;
+        //    int listTwoValueThree = 6;
+        //    int expected = 6;
+        //    //Act
+        //    listOne.Add(listOneValueOne);
+        //    listOne.Add(listOneValueTwo);
+        //    listOne.Add(listOneValueThree);
+        //    listTwo.Add(listTwoValueOne);
+        //    listTwo.Add(listTwoValueTwo);
+        //    listTwo.Add(listTwoValueThree);
+        //    resultingList = listOne.Zip(listTwo);
+        //    //Assert
+        //    Assert.AreEqual(expected, resultingList.Count);
+        //}
+        //[TestMethod]
+        //public void Zip_ZipTwoListsOfEqualCountTogether_ValueAtIndexOneIsValueFromIndexZeroOfListTwo()
+        //{
+        //    //Arrange
+        //    CustomList<int> listOne = new CustomList<int>();
+        //    CustomList<int> listTwo = new CustomList<int>();
+        //    CustomList<int> resultingList;
+        //    int listOneValueOne = 1;
+        //    int listOneValueTwo = 3;
+        //    int listOneValueThree = 5;
+        //    int listTwoValueOne = 2;
+        //    int listTwoValueTwo = 4;
+        //    int listTwoValueThree = 6;
+        //    int expected = 2;
+        //    //Act
+        //    listOne.Add(listOneValueOne);
+        //    listOne.Add(listOneValueTwo);
+        //    listOne.Add(listOneValueThree);
+        //    listTwo.Add(listTwoValueOne);
+        //    listTwo.Add(listTwoValueTwo);
+        //    listTwo.Add(listTwoValueThree);
+        //    resultingList = listOne.Zip(listTwo);
+        //    //Assert
+        //    Assert.AreEqual(expected, resultingList[1]);
+        //}
+        //[TestMethod]
+        //public void Zip_ZipTwoListsOfEqualCountTogether_ValueAtIndexTwoEqualsValueAtIndexOneOfListOne()
+        //{
+        //    //Arrange
+        //    CustomList<int> listOne = new CustomList<int>();
+        //    CustomList<int> listTwo = new CustomList<int>();
+        //    CustomList<int> resultingList;
+        //    int listOneValueOne = 1;
+        //    int listOneValueTwo = 3;
+        //    int listOneValueThree = 5;
+        //    int listTwoValueOne = 2;
+        //    int listTwoValueTwo = 4;
+        //    int listTwoValueThree = 6;
+        //    int expected = 3;
+        //    //Act
+        //    listOne.Add(listOneValueOne);
+        //    listOne.Add(listOneValueTwo);
+        //    listOne.Add(listOneValueThree);
+        //    listTwo.Add(listTwoValueOne);
+        //    listTwo.Add(listTwoValueTwo);
+        //    listTwo.Add(listTwoValueThree);
+        //    resultingList = listOne.Zip(listTwo);
+        //    //Assert
+        //    Assert.AreEqual(expected, resultingList[2]);
+        //}
+        //[TestMethod]
+        //public void Zip_ZipTwoListsTogetherListTwoIsLonger_CountOfResultingListEqualsSumOfCountsOfComponentLists()
+        //{
+        //    //Arrange
+        //    CustomList<int> listOne = new CustomList<int>();
+        //    CustomList<int> listTwo = new CustomList<int>();
+        //    CustomList<int> resultingList;
+        //    int listOneValueOne = 1;
+        //    int listOneValueTwo = 3;
+        //    int listOneValueThree = 5;
+        //    int listTwoValueOne = 2;
+        //    int listTwoValueTwo = 4;
+        //    int listTwoValueThree = 6;
+        //    int listTwoValueFour = 8;
+        //    int expected = 7;
+        //    //Act
+        //    listOne.Add(listOneValueOne);
+        //    listOne.Add(listOneValueTwo);
+        //    listOne.Add(listOneValueThree);
+        //    listTwo.Add(listTwoValueOne);
+        //    listTwo.Add(listTwoValueTwo);
+        //    listTwo.Add(listTwoValueThree);
+        //    listTwo.Add(listTwoValueFour);
+        //    resultingList = listOne.Zip(listTwo);
+        //    //Assert
+        //    Assert.AreEqual(expected, resultingList.Count);
+        //}
+        //[TestMethod]
+        //public void Zip_ZipTwoListsTogetherListTwoIsLonger_ValueAtIndexSixEqualsValueAtIndexThreeOfListTwo()
+        //{
+        //    //Arrange
+        //    CustomList<int> listOne = new CustomList<int>();
+        //    CustomList<int> listTwo = new CustomList<int>();
+        //    CustomList<int> resultingList;
+        //    int listOneValueOne = 1;
+        //    int listOneValueTwo = 3;
+        //    int listOneValueThree = 5;
+        //    int listTwoValueOne = 2;
+        //    int listTwoValueTwo = 4;
+        //    int listTwoValueThree = 6;
+        //    int listTwoValueFour = 8;
+        //    int expected = 8;
+        //    //Act
+        //    listOne.Add(listOneValueOne);
+        //    listOne.Add(listOneValueTwo);
+        //    listOne.Add(listOneValueThree);
+        //    listTwo.Add(listTwoValueOne);
+        //    listTwo.Add(listTwoValueTwo);
+        //    listTwo.Add(listTwoValueThree);
+        //    listTwo.Add(listTwoValueFour);
+        //    resultingList = listOne.Zip(listTwo);
+        //    //Assert
+        //    Assert.AreEqual(expected, resultingList[6]);
+        //}
+        [TestMethod]
+        public void GetCountOfLongerOfTwoLists_ListTwoIsLonger_ReturnCountOfListTwo()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            int listOneValueOne = 1;
+            int listOneValueTwo = 3;
+            int listOneValueThree = 5;
+            int listTwoValueOne = 2;
+            int listTwoValueTwo = 4;
+            int listTwoValueThree = 6;
+            int listTwoValueFour = 8;
+            int expected = 4;
+            int actual;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listTwo.Add(listTwoValueFour);
+            actual = listOne.GetCountOfLongerOfTwoLists(listTwo);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void GetCountOfLongerOfTwoLists_ListOneIsLonger_ReturnCountOfListOne()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            int listOneValueOne = 1;
+            int listOneValueTwo = 3;
+            int listOneValueThree = 5;
+            int listOneValueFour = 45;
+            int listOneValueFive = 72;
+            int listTwoValueOne = 2;
+            int listTwoValueTwo = 4;
+            int listTwoValueThree = 6;
+            int expected = 5;
+            int actual;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listOne.Add(listOneValueFour);
+            listOne.Add(listOneValueFive);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            actual = listOne.GetCountOfLongerOfTwoLists(listTwo);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -109,6 +109,30 @@ namespace customList
             }
             return result;
         }
+        //public CustomList<T> Zip(CustomList<T> listToBeZippedIn)
+        //{
+        //    int countOfLongerList;
+        //    if (listToBeZippedIn.count > count)
+        //    {
+        //        countOfLongerList = listToBeZippedIn.count;
+        //    }
+        //    else
+        //    {
+        //        countOfLongerList = count;
+        //    }
+        //    for (int i)
+        //}
+        public int GetCountOfLongerOfTwoLists(CustomList<T> otherList)
+        {
+            if (otherList.count > this.count)
+            {
+                return otherList.count;
+            }
+            else
+            {
+                return this.count;
+            }
+        }
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> newList = new CustomList<T>();
