@@ -57,7 +57,7 @@ namespace customList
         public void Add(T item)
         {
             //If the array is full, copy the values over to a new array of twice the size, and insert the newest value to be added at the next index
-            if (count == underlyingArray.Length)
+            if (count == capacity)
             {
                 doubleLengthOfUnderlyingArray();
             }
@@ -66,7 +66,7 @@ namespace customList
             //Count should increment
             count++;
         }
-        public void Remove (T item)
+        public void Remove(T item)
         {
             int positionOfItem;
             positionOfItem = Array.IndexOf(underlyingArray, item);
@@ -108,6 +108,25 @@ namespace customList
                 result += underlyingArray[i].ToString();
             }
             return result;
+        }
+        public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            newList.count = listOne.count + listTwo.count;
+            newList.capacity = listOne.capacity + listTwo.capacity;
+            newList.underlyingArray = new T[newList.capacity];
+            int index = 0;
+            while (index < listOne.count)
+            {
+                newList[index] = listOne[index];
+                index++;
+            }
+            while (index < newList.count)
+            {
+                newList[index] = listTwo[index - listOne.count];
+                index++;
+            }
+            return newList;
         }
     }
 }

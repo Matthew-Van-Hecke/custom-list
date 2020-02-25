@@ -10,12 +10,25 @@ namespace customList
     {
         static void Main(string[] args)
         {
-            CustomList<int> intList = new CustomList<int>();
-            intList.Add(9);
-            intList.Add(6);
-            intList.Add(78);
-            intList.Add(34);
-            Console.WriteLine(intList.ToString());
+                //Arrange
+                CustomList<int> listOne = new CustomList<int>();
+                CustomList<int> listTwo = new CustomList<int>();
+                CustomList<int> resultingList;
+                int listOneValueOne = 1;
+                int listOneValueTwo = 2;
+                int listOneValueThree = 3;
+                int listTwoValueOne = 4;
+                int listTwoValueTwo = 5;
+                int listTwoValueThree = 6;
+                //Act
+                listOne.Add(listOneValueOne);
+                listOne.Add(listOneValueTwo);
+                listOne.Add(listOneValueThree);
+                listTwo.Add(listTwoValueOne);
+                listTwo.Add(listTwoValueTwo);
+                listTwo.Add(listTwoValueThree);
+                resultingList = listOne + listTwo;
+            Console.WriteLine(resultingList.ToString());
             Console.ReadLine();
         }
     }

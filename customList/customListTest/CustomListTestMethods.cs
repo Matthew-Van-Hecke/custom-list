@@ -272,5 +272,80 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void PlusOperatorOverload_AddTwoListsTogether_CountOfResultEqualsSumOfCountsOfTwoParts()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int expected = 6;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            resultingList = listOne + listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList.Count);
+        }
+        [TestMethod]
+        public void PlusOperatorOverload_AddTwoListsTogether_CorrectValueAtIndexZero()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int expected = 1;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            resultingList = listOne + listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList[0]);
+        }
+        [TestMethod]
+        public void PlusOperatorOverload_AddTwoListsTogether_CorrectValueAtIndexThree()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int expected = 4;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            resultingList = listOne + listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList[3]);
+        }
     }
 }
