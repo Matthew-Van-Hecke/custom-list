@@ -109,19 +109,23 @@ namespace customList
             }
             return result;
         }
-        //public CustomList<T> Zip(CustomList<T> listToBeZippedIn)
-        //{
-        //    int countOfLongerList;
-        //    if (listToBeZippedIn.count > count)
-        //    {
-        //        countOfLongerList = listToBeZippedIn.count;
-        //    }
-        //    else
-        //    {
-        //        countOfLongerList = count;
-        //    }
-        //    for (int i)
-        //}
+        public CustomList<T> Zip(CustomList<T> listToBeZippedIn)
+        {
+            CustomList<T> resultingList = new CustomList<T>();
+            int countOfLongerList = GetCountOfLongerOfTwoLists(listToBeZippedIn);
+            for (int i = 0; i< countOfLongerList; i++)
+            {
+                if (i < count)
+                {
+                    resultingList.Add(this[i]);
+                }
+                if (i < listToBeZippedIn.count)
+                {
+                    resultingList.Add(listToBeZippedIn[i]);
+                }
+            }
+            return resultingList;
+        }
         public int GetCountOfLongerOfTwoLists(CustomList<T> otherList)
         {
             if (otherList.count > this.count)

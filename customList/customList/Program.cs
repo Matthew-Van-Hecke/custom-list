@@ -27,7 +27,7 @@ namespace customList
                 listTwo.Add(listTwoValueOne);
                 listTwo.Add(listTwoValueTwo);
                 listTwo.Add(listTwoValueThree);
-                resultingList = listOne + listTwo;
+                resultingList = listOne.Zip(listTwo);
             Console.WriteLine(resultingList.ToString());
             Console.ReadLine();
         }
