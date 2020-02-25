@@ -347,5 +347,158 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, resultingList[3]);
         }
+        [TestMethod]
+        public void PlusOperatorOverload_AddTwoListsTogether_CapacityEqualsEight()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int expected = 8;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            resultingList = listOne + listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList.Capacity);
+        }
+        [TestMethod]
+        public void PlusOperatorOverload_AddThreeListsTogether_CorrectValueAtIndexZero()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> listThree = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int listThreeValueOne = 7;
+            int listThreeValueTwo = 8;
+            int listThreeValueThree = 9;
+            int expected = 1;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listThree.Add(listThreeValueOne);
+            listThree.Add(listThreeValueTwo);
+            listThree.Add(listThreeValueThree);
+            resultingList = listOne + listTwo + listThree;
+            //Assert
+            Assert.AreEqual(expected, resultingList[0]);
+        }
+        [TestMethod]
+        public void PlusOperatorOverload_AddThreeListsTogether_CorrectValueAtIndexThree()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> listThree = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int listThreeValueOne = 7;
+            int listThreeValueTwo = 8;
+            int listThreeValueThree = 9;
+            int expected = 4;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listThree.Add(listThreeValueOne);
+            listThree.Add(listThreeValueTwo);
+            listThree.Add(listThreeValueThree);
+            resultingList = listOne + listTwo + listThree;
+            //Assert
+            Assert.AreEqual(expected, resultingList[3]);
+        }
+        [TestMethod]
+        public void PlusOperatorOverload_AddThreeListsTogether_CorrectValueAtIndex6()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> listThree = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int listThreeValueOne = 7;
+            int listThreeValueTwo = 8;
+            int listThreeValueThree = 9;
+            int expected = 7;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listThree.Add(listThreeValueOne);
+            listThree.Add(listThreeValueTwo);
+            listThree.Add(listThreeValueThree);
+            resultingList = listOne + listTwo + listThree;
+            //Assert
+            Assert.AreEqual(expected, resultingList[6]);
+        }
+        [TestMethod]
+        public void PlusOperatorOverload_AddThreeListsTogether_CountEqualsNine()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> listThree = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 5;
+            int listTwoValueThree = 6;
+            int listThreeValueOne = 7;
+            int listThreeValueTwo = 8;
+            int listThreeValueThree = 9;
+            int expected = 9;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listThree.Add(listThreeValueOne);
+            listThree.Add(listThreeValueTwo);
+            listThree.Add(listThreeValueThree);
+            resultingList = listOne + listTwo + listThree;
+            //Assert
+            Assert.AreEqual(expected, resultingList.Count);
+        }
     }
 }
