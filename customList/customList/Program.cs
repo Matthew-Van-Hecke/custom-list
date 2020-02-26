@@ -10,9 +10,24 @@ namespace customList
     {
         static void Main(string[] args)
         {
-            char a = 'a';
-            int num = Convert.ToByte(a);
-            Console.WriteLine(num);
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>();
+            string firstString = "Four";
+            string secondString = "Five";
+            string thirdString = "And";
+            string fourthString = "Seven";
+            string fifthString = "1863";
+            int expected = 5;
+            int actual;
+            //Act
+            stringList.Add(firstString);
+            stringList.Add(secondString);
+            stringList.Add(thirdString);
+            stringList.Add(fourthString);
+            stringList.Add(fifthString);
+            actual = CustomList<string>.FindLengthOfLongestStringInList(stringList);
+            //Assert
+            Console.WriteLine(expected + ", " + actual);
             Console.ReadLine() ;
         }
     }

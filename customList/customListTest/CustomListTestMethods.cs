@@ -902,7 +902,7 @@ namespace customListTest
             //Arrange
             CustomList<string> stringList = new CustomList<string>();
             string firstString = "Four";
-            string secondString = "Sore";
+            string secondString = "Score";
             string thirdString = "And";
             string fourthString = "Seven";
             string fifthString = "1863";
@@ -915,6 +915,50 @@ namespace customListTest
             stringList.Add(fourthString);
             stringList.Add(fifthString);
             actual = CustomList<string>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(stringList, 1);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void FindLengthOfLongestStringInList_OneStringIsLongerThanTheRest_ReturnLengthOfLongestString()
+        {
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>();
+            string firstString = "Four";
+            string secondString = "Five";
+            string thirdString = "And";
+            string fourthString = "Seven";
+            string fifthString = "1863";
+            int expected = 5;
+            int actual;
+            //Act
+            stringList.Add(firstString);
+            stringList.Add(secondString);
+            stringList.Add(thirdString);
+            stringList.Add(fourthString);
+            stringList.Add(fifthString);
+            actual = CustomList<string>.FindLengthOfLongestStringInList(stringList);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void FindLengthOfLongestStringInList_TwoStringsAreEqualAndLongest_ReturnLengthOfLongestStrings()
+        {
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>();
+            string firstString = "Four";
+            string secondString = "Score";
+            string thirdString = "And";
+            string fourthString = "Seven";
+            string fifthString = "1863";
+            int expected = 5;
+            int actual;
+            //Act
+            stringList.Add(firstString);
+            stringList.Add(secondString);
+            stringList.Add(thirdString);
+            stringList.Add(fourthString);
+            stringList.Add(fifthString);
+            actual = CustomList<string>.FindLengthOfLongestStringInList(stringList);
             //Assert
             Assert.AreEqual(expected, actual);
         }

@@ -189,15 +189,23 @@ namespace customList
         }
         //public static CustomList<string> Alphabetize(CustomList<string> listToSort)
         //{
-        //    CustomList<int> listOfIntValuesForChars = new CustomList<int>();
+        //    CustomList<string> sortedList = new CustomList<string>();
         //    CustomList<string> temporaryList = new CustomList<string>();
-        //    char currentChar = listToSort[0][0];
-        //    string alphabet = "abcdefghijklmnopqrstuvwxyz";
-        //    //Loop through numnbers and see if first char of each string until one of the strings starts with a char of that number.
+        //    char currentChar = CustomList<string>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(listToSort, 0);
         //    for (int i = 0; i < listToSort.count; i++)
         //    {
-
+        //        if (listToSort[i][0] == currentChar)
+        //        {
+        //            temporaryList.Add(listToSort[i]);
+        //        }
         //    }
+        //    for (int i = 0; i < 
+        //    if (temporaryList.count == 1)
+        //    {
+        //        sortedList.Add(temporaryList[0]);
+        //        temporaryList.ClearList();
+        //    }
+        //    return sortedList;
         //    //Make a list of strings starting with that char.
         //    //If there are multiple strings in this new list, look at second char and so on until you are down to one string. Add this string to the resulting list, remove this string from the original list, and continue.
         //}
@@ -212,6 +220,23 @@ namespace customList
                 }
             }
             return firstChar;
+        }
+        public static int FindLengthOfLongestStringInList(CustomList<string> list)
+        {
+            CustomList<string> remainingStrings = list;
+            int lengthOfLongestString = 0;
+            while (remainingStrings.count > 1)
+            {
+                lengthOfLongestString++;
+                for (int i = 0; i < list.count; i++)
+                {
+                    if (lengthOfLongestString >= list[i].Length)
+                    {
+                        remainingStrings.Remove(list[i]);
+                    }
+                }
+            }
+            return lengthOfLongestString;
         }
         public static CustomList<int> SortNumericallyLowToHigh(CustomList<int> originalList)
         {
