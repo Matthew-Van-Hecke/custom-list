@@ -69,7 +69,7 @@ namespace customList
         public void Remove(T item)
         {
             int positionOfItem;
-            positionOfItem = Array.IndexOf(underlyingArray, item);
+            positionOfItem = FindIndexOfGivenItem(item);
             //Find first instance of value and remove from array
             //Loop through array starting at that value through to the second to last position replacing each value with the one immediately following it
             for (int i = positionOfItem; i < capacity; i++)
@@ -85,6 +85,17 @@ namespace customList
             }
             //Decrement count
             count--;
+        }
+        public int FindIndexOfGivenItem(T item)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                if (this[i].Equals(item))
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
         private void doubleLengthOfUnderlyingArray()
         {
