@@ -168,14 +168,27 @@ namespace customList
             }
             return listOne;
         }
+        public void ClearList()
+        {
+            int countOfListToClear = count;
+            for (int i = 0; i < countOfListToClear; i++)
+            {
+                Remove(this[0]);
+            }
+        }
         //public void Alphabetize()
         //{
         //    CustomList<T> temporaryList = this;
         //    string alphabet = "abcdefghijklmnopqrstuvwxyz";
-        //    for (int i = 0; i < temporaryList.count; i++)
-        //    {
+        //    //Loop through numnbers and see if first char of each string until one of the strings starts with a char of that number.
+        //    //Make a list of strings starting with that char.
+        //    //If there are multiple strings in this new list, look at second char and so on until you are down to one string. Add this string to the resulting list, remove this string from the original list, and continue.
+        //}
+        //public void SortNumericallyLowToHigh()
+        //{
+        //    T[] temporaryArray = underlyingArray;
+        //    CustomList<T> sorted = new CustomList<T>();
 
-        //    }
         //}
     }
 }

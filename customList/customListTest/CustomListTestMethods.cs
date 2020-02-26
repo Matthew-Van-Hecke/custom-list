@@ -736,99 +736,120 @@ namespace customListTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Alphabetize_FourStringsInList_PutsCorrectStringAtZeroIndex()
+        public void ClearList_List_ListHasACountOfZero()
         {
             //Arrange
-            CustomList<string> customList = new CustomList<string>();
-            string firstStringToAdd = "James";
-            string secondStringToAdd = "Bob";
-            string thirdStringToAdd = "Aaron";
-            string fourthStringToAdd = "Arthur";
-            string expected = "Aaron";
+            CustomList<int> listOne = new CustomList<int>();
+            int listOneValueOne = 1;
+            int listOneValueTwo = 3;
+            int listOneValueThree = 5;
+            int listOneValueFour = 34;
+            int listOneValueFive = 73;
+            int expected = 0;
             //Act
-            customList.Add(firstStringToAdd);
-            customList.Add(secondStringToAdd);
-            customList.Add(thirdStringToAdd);
-            customList.Add(fourthStringToAdd);
-            customList.Alphabetize();
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listOne.Add(listOneValueFour);
+            listOne.Add(listOneValueFive);
+            listOne.ClearList();
             //Assert
-            Assert.AreEqual(expected, customList[0]);
+            Assert.AreEqual(expected, listOne.Count);
         }
-        [TestMethod]
-        public void Alphabetize_FourStringsInList_PutsCorrectStringAtOneIndex()
-        {
-            //Arrange
-            CustomList<string> customList = new CustomList<string>();
-            string firstStringToAdd = "James";
-            string secondStringToAdd = "Bob";
-            string thirdStringToAdd = "Aaron";
-            string fourthStringToAdd = "Arthur";
-            string expected = "Arthur";
-            //Act
-            customList.Add(firstStringToAdd);
-            customList.Add(secondStringToAdd);
-            customList.Add(thirdStringToAdd);
-            customList.Add(fourthStringToAdd);
-            customList.Alphabetize();
-            //Assert
-            Assert.AreEqual(expected, customList[1]);
-        }
-        [TestMethod]
-        public void Alphabetize_FourStringsInList_PutsCorrectStringAtTwoIndex()
-        {
-            //Arrange
-            CustomList<string> customList = new CustomList<string>();
-            string firstStringToAdd = "James";
-            string secondStringToAdd = "Bob";
-            string thirdStringToAdd = "Aaron";
-            string fourthStringToAdd = "Arthur";
-            string expected = "Arthur";
-            //Act
-            customList.Add(firstStringToAdd);
-            customList.Add(secondStringToAdd);
-            customList.Add(thirdStringToAdd);
-            customList.Add(fourthStringToAdd);
-            customList.Alphabetize();
-            //Assert
-            Assert.AreEqual(expected, customList[2]);
-        }
-        [TestMethod]
-        public void Alphabetize_FourStringsInList_PutsCorrectStringAtThreeIndex()
-        {
-            //Arrange
-            CustomList<string> customList = new CustomList<string>();
-            string firstStringToAdd = "James";
-            string secondStringToAdd = "Bob";
-            string thirdStringToAdd = "Aaron";
-            string fourthStringToAdd = "Arthur";
-            string expected = "Arthur";
-            //Act
-            customList.Add(firstStringToAdd);
-            customList.Add(secondStringToAdd);
-            customList.Add(thirdStringToAdd);
-            customList.Add(fourthStringToAdd);
-            customList.Alphabetize();
-            //Assert
-            Assert.AreEqual(expected, customList[3]);
-        }
-        [TestMethod]
-        public void Alphabetize_FourStringInList_CountOfSortedListIsSameAsOfUnsortedList()
-        {
-            //Arrange
-            CustomList<string> customList = new CustomList<string>();
-            string firstStringToAdd = "James";
-            string secondStringToAdd = "Bob";
-            string thirdStringToAdd = "Aaron";
-            string fourthStringToAdd = "Arthur";
-            int expected = 4;
-            //Act
-            customList.Add(firstStringToAdd);
-            customList.Add(secondStringToAdd);
-            customList.Add(thirdStringToAdd);
-            customList.Add(fourthStringToAdd);
-            customList.Alphabetize();
-            //Assert
-            Assert.AreEqual(expected, customList.Count);
-        }
+        //[TestMethod]
+        //public void Alphabetize_FourStringsInList_PutsCorrectStringAtZeroIndex()
+        //{
+        //    //Arrange
+        //    CustomList<string> customList = new CustomList<string>();
+        //    string firstStringToAdd = "James";
+        //    string secondStringToAdd = "Bob";
+        //    string thirdStringToAdd = "Aaron";
+        //    string fourthStringToAdd = "Arthur";
+        //    string expected = "Aaron";
+        //    //Act
+        //    customList.Add(firstStringToAdd);
+        //    customList.Add(secondStringToAdd);
+        //    customList.Add(thirdStringToAdd);
+        //    customList.Add(fourthStringToAdd);
+        //    customList.Alphabetize();
+        //    //Assert
+        //    Assert.AreEqual(expected, customList[0]);
+        //}
+        //[TestMethod]
+        //public void Alphabetize_FourStringsInList_PutsCorrectStringAtOneIndex()
+        //{
+        //    //Arrange
+        //    CustomList<string> customList = new CustomList<string>();
+        //    string firstStringToAdd = "James";
+        //    string secondStringToAdd = "Bob";
+        //    string thirdStringToAdd = "Aaron";
+        //    string fourthStringToAdd = "Arthur";
+        //    string expected = "Arthur";
+        //    //Act
+        //    customList.Add(firstStringToAdd);
+        //    customList.Add(secondStringToAdd);
+        //    customList.Add(thirdStringToAdd);
+        //    customList.Add(fourthStringToAdd);
+        //    customList.Alphabetize();
+        //    //Assert
+        //    Assert.AreEqual(expected, customList[1]);
+        //}
+        //[TestMethod]
+        //public void Alphabetize_FourStringsInList_PutsCorrectStringAtTwoIndex()
+        //{
+        //    //Arrange
+        //    CustomList<string> customList = new CustomList<string>();
+        //    string firstStringToAdd = "James";
+        //    string secondStringToAdd = "Bob";
+        //    string thirdStringToAdd = "Aaron";
+        //    string fourthStringToAdd = "Arthur";
+        //    string expected = "Arthur";
+        //    //Act
+        //    customList.Add(firstStringToAdd);
+        //    customList.Add(secondStringToAdd);
+        //    customList.Add(thirdStringToAdd);
+        //    customList.Add(fourthStringToAdd);
+        //    customList.Alphabetize();
+        //    //Assert
+        //    Assert.AreEqual(expected, customList[2]);
+        //}
+        //[TestMethod]
+        //public void Alphabetize_FourStringsInList_PutsCorrectStringAtThreeIndex()
+        //{
+        //    //Arrange
+        //    CustomList<string> customList = new CustomList<string>();
+        //    string firstStringToAdd = "James";
+        //    string secondStringToAdd = "Bob";
+        //    string thirdStringToAdd = "Aaron";
+        //    string fourthStringToAdd = "Arthur";
+        //    string expected = "Arthur";
+        //    //Act
+        //    customList.Add(firstStringToAdd);
+        //    customList.Add(secondStringToAdd);
+        //    customList.Add(thirdStringToAdd);
+        //    customList.Add(fourthStringToAdd);
+        //    customList.Alphabetize();
+        //    //Assert
+        //    Assert.AreEqual(expected, customList[3]);
+        //}
+        //[TestMethod]
+        //public void Alphabetize_FourStringInList_CountOfSortedListIsSameAsOfUnsortedList()
+        //{
+        //    //Arrange
+        //    CustomList<string> customList = new CustomList<string>();
+        //    string firstStringToAdd = "James";
+        //    string secondStringToAdd = "Bob";
+        //    string thirdStringToAdd = "Aaron";
+        //    string fourthStringToAdd = "Arthur";
+        //    int expected = 4;
+        //    //Act
+        //    customList.Add(firstStringToAdd);
+        //    customList.Add(secondStringToAdd);
+        //    customList.Add(thirdStringToAdd);
+        //    customList.Add(fourthStringToAdd);
+        //    customList.Alphabetize();
+        //    //Assert
+        //    Assert.AreEqual(expected, customList.Count);
+        //}
     }
 }
