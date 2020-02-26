@@ -876,6 +876,48 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, sortedList[3]);
         }
+        [TestMethod]
+        public void FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList_ListOfStringsWithExclusivelyLetterCharacters_ReturnCharWithLowestByteValueFromThoseAtIndexOne()
+        {
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>();
+            string firstString = "Four";
+            string secondString = "Score";
+            string thirdString = "And";
+            string fourthString = "Seven";
+            char expected = 'c';
+            char actual;
+            //Act
+            stringList.Add(firstString);
+            stringList.Add(secondString);
+            stringList.Add(thirdString);
+            stringList.Add(fourthString);
+            actual = CustomList<string>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(stringList, 1);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList_ListOfStringsNotExclusivelyLetterCharacters_ReturnCharWithLowestByteValueFromThoseAtIndexOne()
+        {
+            //Arrange
+            CustomList<string> stringList = new CustomList<string>();
+            string firstString = "Four";
+            string secondString = "Sore";
+            string thirdString = "And";
+            string fourthString = "Seven";
+            string fifthString = "1863";
+            char expected = '8';
+            char actual;
+            //Act
+            stringList.Add(firstString);
+            stringList.Add(secondString);
+            stringList.Add(thirdString);
+            stringList.Add(fourthString);
+            stringList.Add(fifthString);
+            actual = CustomList<string>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(stringList, 1);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
         //[TestMethod]
         //public void Alphabetize_FourStringsInList_PutsCorrectStringAtZeroIndex()
         //{

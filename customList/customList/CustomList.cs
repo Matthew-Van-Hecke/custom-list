@@ -187,14 +187,32 @@ namespace customList
                 Remove(this[0]);
             }
         }
-        //public void Alphabetize()
+        //public static CustomList<string> Alphabetize(CustomList<string> listToSort)
         //{
-        //    CustomList<T> temporaryList = this;
+        //    CustomList<int> listOfIntValuesForChars = new CustomList<int>();
+        //    CustomList<string> temporaryList = new CustomList<string>();
+        //    char currentChar = listToSort[0][0];
         //    string alphabet = "abcdefghijklmnopqrstuvwxyz";
         //    //Loop through numnbers and see if first char of each string until one of the strings starts with a char of that number.
+        //    for (int i = 0; i < listToSort.count; i++)
+        //    {
+
+        //    }
         //    //Make a list of strings starting with that char.
         //    //If there are multiple strings in this new list, look at second char and so on until you are down to one string. Add this string to the resulting list, remove this string from the original list, and continue.
         //}
+        public static char FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(CustomList<string> stringList, int indexAtWhichToLook)
+        {
+            char firstChar = stringList[0][indexAtWhichToLook];
+            for (int i = 0; i < stringList.count; i++)
+            {
+                if (Convert.ToByte(stringList[i][indexAtWhichToLook]) < Convert.ToByte(firstChar))
+                {
+                    firstChar = stringList[i][indexAtWhichToLook];
+                }
+            }
+            return firstChar;
+        }
         public static CustomList<int> SortNumericallyLowToHigh(CustomList<int> originalList)
         {
             CustomList<int> sortedList = new CustomList<int>();
