@@ -11,23 +11,24 @@ namespace customList
         static void Main(string[] args)
         {
             //Arrange
-            CustomList<string> stringList = new CustomList<string>();
-            string firstString = "Four";
-            string secondString = "Five";
-            string thirdString = "And";
-            string fourthString = "Seven";
-            string fifthString = "1863";
-            int expected = 5;
-            int actual;
+            CustomList<string> customList = new CustomList<string>();
+            CustomList<string> sortedList;
+            string firstStringToAdd = "James";
+            string secondStringToAdd = "Bob";
+            string thirdStringToAdd = "Aaron";
+            string fourthStringToAdd = "Arthur";
+            string fifthStringToAdd = "King George VI";
+            string sixthStringToAdd = "Aaron";
             //Act
-            stringList.Add(firstString);
-            stringList.Add(secondString);
-            stringList.Add(thirdString);
-            stringList.Add(fourthString);
-            stringList.Add(fifthString);
-            actual = CustomList<string>.FindLengthOfLongestStringInList(stringList);
+            customList.Add(firstStringToAdd);
+            customList.Add(secondStringToAdd);
+            customList.Add(thirdStringToAdd);
+            customList.Add(fourthStringToAdd);
+            customList.Add(fifthStringToAdd);
+            customList.Add(sixthStringToAdd);
+            sortedList = CustomList<string>.Alphabetize(customList);
             //Assert
-            Console.WriteLine(expected + ", " + actual);
+            Console.WriteLine(sortedList.ToString());
             Console.ReadLine() ;
         }
     }
