@@ -184,11 +184,42 @@ namespace customList
         //    //Make a list of strings starting with that char.
         //    //If there are multiple strings in this new list, look at second char and so on until you are down to one string. Add this string to the resulting list, remove this string from the original list, and continue.
         //}
-        //public void SortNumericallyLowToHigh()
+        //public static CustomList<int> SortNumericallyLowToHigh(CustomList<int> originalList)
         //{
-        //    T[] temporaryArray = underlyingArray;
-        //    CustomList<T> sorted = new CustomList<T>();
-
+        //    CustomList<int> temporaryList = new CustomList<int>();
+        //    int lowestInt = 0;
+        //    while (originalList.count > 0)
+        //    {
+        //        lowestInt = originalList[0];
+        //        for (int i = 1; i < originalList.count; i++)
+        //        {
+        //            if (originalList[i] < lowestInt)
+        //            {
+        //                lowestInt = originalList[i];
+        //            }
+        //        }
+        //        for (int i = 0; i < originalList.count; i++)
+        //        {
+        //            if (originalList[i] == lowestInt)
+        //            {
+        //                temporaryList.Add(lowestInt);
+        //                temporaryList.Remove(lowestInt);
+        //            }
+        //        }
+        //    }
+        //    return temporaryList;
         //}
+        public static int GetLowestIntFromIntList(CustomList<int> intList)
+        {
+            int lowestInt = intList[0];
+            for (int i = 0; i < intList.count; i++)
+            {
+                if (intList[i] < lowestInt)
+                {
+                    lowestInt = intList[i];
+                }
+            }
+            return lowestInt;
+        }
     }
 }

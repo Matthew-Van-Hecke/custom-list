@@ -756,6 +756,27 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, listOne.Count);
         }
+        [TestMethod]
+        public void GetLowestIntFromIntList_FourIntsInList_ReturnLowestIntFromList()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> sortedList;
+            int firstValueToAdd = 345;
+            int secondValueToAdd = 23;
+            int thirdValueToAdd = 1;
+            int fourthValueToAdd = 47;
+            int expected = 1;
+            int actual;
+            //Act
+            customList.Add(firstValueToAdd);
+            customList.Add(secondValueToAdd);
+            customList.Add(thirdValueToAdd);
+            customList.Add(fourthValueToAdd);
+            actual = CustomList<int>.GetLowestIntFromIntList(customList);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
         //[TestMethod]
         //public void Alphabetize_FourStringsInList_PutsCorrectStringAtZeroIndex()
         //{
