@@ -761,7 +761,6 @@ namespace customListTest
         {
             //Arrange
             CustomList<int> customList = new CustomList<int>();
-            CustomList<int> sortedList;
             int firstValueToAdd = 345;
             int secondValueToAdd = 23;
             int thirdValueToAdd = 1;
@@ -776,6 +775,106 @@ namespace customListTest
             actual = CustomList<int>.GetLowestIntFromIntList(customList);
             //Assert
             Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SortNumericallyLowToHigh_FourIntsInList_LowestIntIsAtZeroIndex()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> sortedList;
+            int firstValueToAdd = 345;
+            int secondValueToAdd = 23;
+            int thirdValueToAdd = 1;
+            int fourthValueToAdd = 47;
+            int expected = 1;
+            //Act
+            customList.Add(firstValueToAdd);
+            customList.Add(secondValueToAdd);
+            customList.Add(thirdValueToAdd);
+            customList.Add(fourthValueToAdd);
+            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            //Assert
+            Assert.AreEqual(expected, sortedList[0]);
+        }
+        [TestMethod]
+        public void SortNumericallyLowToHigh_FourIntsInList_SecondLowestIntIsAtOneIndex()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> sortedList;
+            int firstValueToAdd = 345;
+            int secondValueToAdd = 23;
+            int thirdValueToAdd = 1;
+            int fourthValueToAdd = 47;
+            int expected = 23;
+            //Act
+            customList.Add(firstValueToAdd);
+            customList.Add(secondValueToAdd);
+            customList.Add(thirdValueToAdd);
+            customList.Add(fourthValueToAdd);
+            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            //Assert
+            Assert.AreEqual(expected, sortedList[1]);
+        }
+        [TestMethod]
+        public void SortNumericallyLowToHigh_FourIntsInList_ThirdLowestIntIsAtTwoIndex()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> sortedList;
+            int firstValueToAdd = 345;
+            int secondValueToAdd = 23;
+            int thirdValueToAdd = 1;
+            int fourthValueToAdd = 47;
+            int expected = 47;
+            //Act
+            customList.Add(firstValueToAdd);
+            customList.Add(secondValueToAdd);
+            customList.Add(thirdValueToAdd);
+            customList.Add(fourthValueToAdd);
+            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            //Assert
+            Assert.AreEqual(expected, sortedList[2]);
+        }
+        [TestMethod]
+        public void SortNumericallyLowToHigh_FourIntsInList_FourthLowestIntIsAtThreeIndex()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> sortedList;
+            int firstValueToAdd = 345;
+            int secondValueToAdd = 23;
+            int thirdValueToAdd = 1;
+            int fourthValueToAdd = 47;
+            int expected = 345;
+            //Act
+            customList.Add(firstValueToAdd);
+            customList.Add(secondValueToAdd);
+            customList.Add(thirdValueToAdd);
+            customList.Add(fourthValueToAdd);
+            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            //Assert
+            Assert.AreEqual(expected, sortedList[3]);
+        }
+        [TestMethod]
+        public void SortNumericallyLowToHigh_FourIntsInList_CountOfSortedListIsSameAsCountOfOriginalList()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            CustomList<int> sortedList;
+            int firstValueToAdd = 345;
+            int secondValueToAdd = 23;
+            int thirdValueToAdd = 1;
+            int fourthValueToAdd = 47;
+            int expected = 345;
+            //Act
+            customList.Add(firstValueToAdd);
+            customList.Add(secondValueToAdd);
+            customList.Add(thirdValueToAdd);
+            customList.Add(fourthValueToAdd);
+            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            //Assert
+            Assert.AreEqual(expected, sortedList[3]);
         }
         //[TestMethod]
         //public void Alphabetize_FourStringsInList_PutsCorrectStringAtZeroIndex()
