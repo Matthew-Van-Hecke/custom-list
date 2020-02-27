@@ -67,6 +67,20 @@ namespace customList
             //Count should increment
             count++;
         }
+        public void AddAtIndex(T item, int index)
+        {
+            CustomList<T> temporaryList = new CustomList<T>();
+            while (count > index)
+            {
+                temporaryList.Add(this[index]);
+                Remove(this[index]);
+            }
+            Add(item);
+            foreach (T value in temporaryList)
+            {
+                Add(value);
+            }
+        }
         public void Remove(T item)
         {
             int positionOfItem;
@@ -188,26 +202,39 @@ namespace customList
                 Remove(this[0]);
             }
         }
-        public void AddAtIndex(T item, int index)
+
+        public static CustomList<IComparable> Sort(CustomList<IComparable> listToSort)
         {
-            CustomList<T> temporaryList = new CustomList<T>();
-            while (count > index)
+            CustomList<IComparable> sortedList = new CustomList<IComparable>();
+            sortedList.Add(listToSort[0]);
+            listToSort.Remove(listToSort[0]);
+            bool itemBelongsAtEndOfList = true;
+            //Loop through listToSort
+            while (listToSort.count > 0)
             {
-                temporaryList.Add(this[index]);
-                Remove(this[index]);
+                for (int j = 0; j < sortedList.count; j++)
+                {
+                    if (listToSort[0].CompareTo(sortedList[j]) <= 0)
+                    {
+                        sortedList.AddAtIndex(listToSort[0], j);
+                        listToSort.Remove(listToSort[0]);
+                        itemBelongsAtEndOfList = false;
+                        break;
+                    }
+                }
+                if (itemBelongsAtEndOfList)
+                {
+                    CustomList<IComparable>.MoveItemFromToSortedList(listToSort, sortedList, 0);
+                }
+                itemBelongsAtEndOfList = true;
             }
-            Add(item);
-            foreach (T value in temporaryList)
-            {
-                Add(value);
-            }
+            return sortedList;
         }
-        //public static CustomList<T> Sort(CustomList<T> listToSort)
-        //{
-        //    //Loop through listToSort
-        //        //Add first item to sortedList
-        //        //From the second item on, loop through the items currently in the sorted list, comparing it to each, add adding it where it balongs.
-        //}
+        public static void MoveItemFromToSortedList(CustomList<T> listToSort, CustomList<T> sortedList, int indexFrom)
+        {
+            sortedList.Add(listToSort[indexFrom]);
+            listToSort.Remove(listToSort[indexFrom]);
+        }
         //public static CustomList<string> Sort(CustomList<string> listToSort)
         //{
         //    CustomList<string> remainingStringsToBeSorted = listToSort;

@@ -10,24 +10,28 @@ namespace customList
     {
         static void Main(string[] args)
         {
-            ////Arrange
-            //CustomList<string> customList = new CustomList<string>();
-            //CustomList<string> sortedList;
-            //string firstStringToAdd = "James";
-            //string secondStringToAdd = "Bob";
-            //string thirdStringToAdd = "Aaron";
-            //string fourthStringToAdd = "Arthur";
-            //string fifthStringToAdd = "King George VI";
-            //string sixthStringToAdd = "Aaron";
-            ////Act
-            //customList.Add(firstStringToAdd);
-            //customList.Add(secondStringToAdd);
-            //customList.Add(thirdStringToAdd);
-            //customList.Add(fourthStringToAdd);
-            //customList.Add(fifthStringToAdd);
-            //customList.Add(sixthStringToAdd);
-            ////Assert
-            //Console.WriteLine(CustomList<string>.Sort(customList));
+            //Arrange
+            CustomList<IComparable> customList = new CustomList<IComparable>();
+            CustomList<IComparable> sortedList;
+            int firstStringToAdd = 12;
+            int secondStringToAdd = 1;
+            int thirdStringToAdd = 234;
+            int fourthStringToAdd = 78;
+            int fifthStringToAdd = 90;
+            int sixthStringToAdd = 0;
+            //Act
+            customList.Add(firstStringToAdd);
+            customList.Add(secondStringToAdd);
+            customList.Add(thirdStringToAdd);
+            customList.Add(fourthStringToAdd);
+            customList.Add(fifthStringToAdd);
+            customList.Add(sixthStringToAdd);
+            sortedList = CustomList<IComparable>.Sort(customList);
+            //Assert
+            foreach (IComparable item in sortedList)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadLine();
         }
     }
