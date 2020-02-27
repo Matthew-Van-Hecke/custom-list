@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace customList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         //Member Variables
         int count;
@@ -296,6 +297,14 @@ namespace customList
                 }
             }
             return lowestInt;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return underlyingArray[i];
+            }
         }
     }
 }

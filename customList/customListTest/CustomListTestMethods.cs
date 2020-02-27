@@ -1042,5 +1042,51 @@ namespace customListTest
             //Assert
             Assert.AreEqual(expected, sortedList[3]);
         }
+        [TestMethod]
+        public void Foreach_ListOfFourStrings_RunsFourTimes()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            string firstValue = "this";
+            string secondValue = "is";
+            string thirdValue = "a";
+            string fourthValue = "test";
+            int expected = 4;
+            int actual = 0;
+            //Act
+            list.Add(firstValue);
+            list.Add(secondValue);
+            list.Add(thirdValue);
+            list.Add(fourthValue);
+            foreach (string value in list)
+            {
+                actual++;
+            }
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Foreach_ListOfFourStrings_ReturnsFourValuesConcatinatedTogether()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            string firstValue = "this";
+            string secondValue = "is";
+            string thirdValue = "a";
+            string fourthValue = "test";
+            string expected = "thisisatest";
+            string actual = "";
+            //Act
+            list.Add(firstValue);
+            list.Add(secondValue);
+            list.Add(thirdValue);
+            list.Add(fourthValue);
+            foreach (string value in list)
+            {
+                actual += value;
+            }
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
