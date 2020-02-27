@@ -188,116 +188,136 @@ namespace customList
                 Remove(this[0]);
             }
         }
-        public static CustomList<string> Sort(CustomList<string> listToSort)
+        public void AddAtIndex(T item, int index)
         {
-            CustomList<string> remainingStringsToBeSorted = listToSort;
-            CustomList<string> sortedList = new CustomList<string>();
-            CustomList<string> temporaryList = new CustomList<string>();
-            int countOfOriginalUnsortedList = listToSort.count;
-            char currentChar;
-            while (sortedList.count < countOfOriginalUnsortedList)
+            CustomList<T> temporaryList = new CustomList<T>();
+            while (count > index)
             {
-                currentChar = CustomList<T>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(remainingStringsToBeSorted, 0);
-                BuildListOfStringsWhichStartWithCurrentCharInTemporaryListVariable(remainingStringsToBeSorted, temporaryList, currentChar);
-                int currentIndexOfEachString = 0;
-                while (temporaryList.count > 1)
-                {
-                    char earliestCharFoundAtCurrentIndex = CustomList<T>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(temporaryList, currentIndexOfEachString);
-                    LookAtParticularIndexOfEachStringAndRemoveStringFromTemporaryListIfNotStartWithEarliestChar(sortedList, remainingStringsToBeSorted, temporaryList, earliestCharFoundAtCurrentIndex, currentIndexOfEachString);
-                    currentIndexOfEachString++;
-                }
-                TranferItemToSortedList(sortedList, remainingStringsToBeSorted, temporaryList, 0);
+                temporaryList.Add(this[index]);
+                Remove(this[index]);
             }
-            return sortedList;
-        }
-        public static void LookAtParticularIndexOfEachStringAndRemoveStringFromTemporaryListIfNotStartWithEarliestChar(CustomList<string> sortedList, CustomList<string> remainingStringsToBeSorted, CustomList<string> temporaryList, char earliestCharFoundAtCurrentIndex, int currentIndexOfEachString)
-        {
-            for (int i = 0; i < temporaryList.count; i++)
+            Add(item);
+            foreach (T value in temporaryList)
             {
-                if (currentIndexOfEachString >= temporaryList[i].Length - 1)
-                {
-                    TranferItemToSortedList(sortedList, remainingStringsToBeSorted, temporaryList, i);
-                }
-                if (temporaryList[i][currentIndexOfEachString] != earliestCharFoundAtCurrentIndex)
-                {
-                    temporaryList.Remove(temporaryList[i]);
-                }
+                Add(value);
             }
         }
-        public static void TranferItemToSortedList(CustomList<string> sortedList, CustomList<string> remainingStringsToBeSorted, CustomList<string> temporaryList, int index)
-        {
-            sortedList.Add(temporaryList[index]);
-            remainingStringsToBeSorted.Remove(temporaryList[index]);
-            temporaryList.Remove(temporaryList[index]);
-        }
-        public static void BuildListOfStringsWhichStartWithCurrentCharInTemporaryListVariable(CustomList<string> remainingStringsToBeSorted, CustomList<string> temporaryList, char currentChar)
-        {
-            for (int i = 0; i < remainingStringsToBeSorted.count; i++)
-            {
-                if (remainingStringsToBeSorted[i][0] == currentChar)
-                {
-                    temporaryList.Add(remainingStringsToBeSorted[i]);
-                }
-            }
-        }
-        public static char FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(CustomList<string> stringList, int indexAtWhichToLook)
-        {
-            char firstChar = stringList[0][indexAtWhichToLook];
-            for (int i = 0; i < stringList.count; i++)
-            {
-                if (Convert.ToByte(stringList[i][indexAtWhichToLook]) < Convert.ToByte(firstChar))
-                {
-                    firstChar = stringList[i][indexAtWhichToLook];
-                }
-            }
-            return firstChar;
-        }
-        public static int FindLengthOfLongestStringInList(CustomList<string> list)
-        {
-            CustomList<string> remainingStrings = list;
-            int lengthOfLongestString = 0;
-            while (remainingStrings.count > 1)
-            {
-                lengthOfLongestString++;
-                for (int i = 0; i < list.count; i++)
-                {
-                    if (lengthOfLongestString >= list[i].Length)
-                    {
-                        remainingStrings.Remove(list[i]);
-                    }
-                }
-            }
-            return lengthOfLongestString;
-        }
-        public static CustomList<int> Sort(CustomList<int> originalList)
-        {
-            CustomList<int> sortedList = new CustomList<int>();
-            while (originalList.count > 0)
-            {
-                int lowestInt = CustomList<int>.GetLowestIntFromIntList(originalList);
-                for (int i = 0; i < originalList.count; i++)
-                {
-                    if (originalList[i] == lowestInt)
-                    {
-                        sortedList.Add(lowestInt);
-                        originalList.Remove(lowestInt);
-                    }
-                }
-            }
-            return sortedList;
-        }
-        public static int GetLowestIntFromIntList(CustomList<int> intList)
-        {
-            int lowestInt = intList[0];
-            for (int i = 0; i < intList.count; i++)
-            {
-                if (intList[i] < lowestInt)
-                {
-                    lowestInt = intList[i];
-                }
-            }
-            return lowestInt;
-        }
+        //public static CustomList<T> Sort(CustomList<T> listToSort)
+        //{
+        //    //Loop through listToSort
+        //        //Add first item to sortedList
+        //        //From the second item on, loop through the items currently in the sorted list, comparing it to each, add adding it where it balongs.
+        //}
+        //public static CustomList<string> Sort(CustomList<string> listToSort)
+        //{
+        //    CustomList<string> remainingStringsToBeSorted = listToSort;
+        //    CustomList<string> sortedList = new CustomList<string>();
+        //    CustomList<string> temporaryList = new CustomList<string>();
+        //    int countOfOriginalUnsortedList = listToSort.count;
+        //    char currentChar;
+        //    while (sortedList.count < countOfOriginalUnsortedList)
+        //    {
+        //        currentChar = CustomList<T>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(remainingStringsToBeSorted, 0);
+        //        BuildListOfStringsWhichStartWithCurrentCharInTemporaryListVariable(remainingStringsToBeSorted, temporaryList, currentChar);
+        //        int currentIndexOfEachString = 0;
+        //        while (temporaryList.count > 1)
+        //        {
+        //            char earliestCharFoundAtCurrentIndex = CustomList<T>.FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(temporaryList, currentIndexOfEachString);
+        //            LookAtParticularIndexOfEachStringAndRemoveStringFromTemporaryListIfNotStartWithEarliestChar(sortedList, remainingStringsToBeSorted, temporaryList, earliestCharFoundAtCurrentIndex, currentIndexOfEachString);
+        //            currentIndexOfEachString++;
+        //        }
+        //        TranferItemToSortedList(sortedList, remainingStringsToBeSorted, temporaryList, 0);
+        //    }
+        //    return sortedList;
+        //}
+        //public static void LookAtParticularIndexOfEachStringAndRemoveStringFromTemporaryListIfNotStartWithEarliestChar(CustomList<string> sortedList, CustomList<string> remainingStringsToBeSorted, CustomList<string> temporaryList, char earliestCharFoundAtCurrentIndex, int currentIndexOfEachString)
+        //{
+        //    for (int i = 0; i < temporaryList.count; i++)
+        //    {
+        //        if (currentIndexOfEachString >= temporaryList[i].Length - 1)
+        //        {
+        //            TranferItemToSortedList(sortedList, remainingStringsToBeSorted, temporaryList, i);
+        //        }
+        //        if (temporaryList[i][currentIndexOfEachString] != earliestCharFoundAtCurrentIndex)
+        //        {
+        //            temporaryList.Remove(temporaryList[i]);
+        //        }
+        //    }
+        //}
+        //public static void TranferItemToSortedList(CustomList<string> sortedList, CustomList<string> remainingStringsToBeSorted, CustomList<string> temporaryList, int index)
+        //{
+        //    sortedList.Add(temporaryList[index]);
+        //    remainingStringsToBeSorted.Remove(temporaryList[index]);
+        //    temporaryList.Remove(temporaryList[index]);
+        //}
+        //public static void BuildListOfStringsWhichStartWithCurrentCharInTemporaryListVariable(CustomList<string> remainingStringsToBeSorted, CustomList<string> temporaryList, char currentChar)
+        //{
+        //    for (int i = 0; i < remainingStringsToBeSorted.count; i++)
+        //    {
+        //        if (remainingStringsToBeSorted[i][0] == currentChar)
+        //        {
+        //            temporaryList.Add(remainingStringsToBeSorted[i]);
+        //        }
+        //    }
+        //}
+        //public static char FindEarliestCharWhenLookingAtGivenIndexOfEachStringInList(CustomList<string> stringList, int indexAtWhichToLook)
+        //{
+        //    char firstChar = stringList[0][indexAtWhichToLook];
+        //    for (int i = 0; i < stringList.count; i++)
+        //    {
+        //        if (Convert.ToByte(stringList[i][indexAtWhichToLook]) < Convert.ToByte(firstChar))
+        //        {
+        //            firstChar = stringList[i][indexAtWhichToLook];
+        //        }
+        //    }
+        //    return firstChar;
+        //}
+        //public static int FindLengthOfLongestStringInList(CustomList<string> list)
+        //{
+        //    CustomList<string> remainingStrings = list;
+        //    int lengthOfLongestString = 0;
+        //    while (remainingStrings.count > 1)
+        //    {
+        //        lengthOfLongestString++;
+        //        for (int i = 0; i < list.count; i++)
+        //        {
+        //            if (lengthOfLongestString >= list[i].Length)
+        //            {
+        //                remainingStrings.Remove(list[i]);
+        //            }
+        //        }
+        //    }
+        //    return lengthOfLongestString;
+        //}
+        //public static CustomList<int> Sort(CustomList<int> originalList)
+        //{
+        //    CustomList<int> sortedList = new CustomList<int>();
+        //    while (originalList.count > 0)
+        //    {
+        //        int lowestInt = CustomList<int>.GetLowestIntFromIntList(originalList);
+        //        for (int i = 0; i < originalList.count; i++)
+        //        {
+        //            if (originalList[i] == lowestInt)
+        //            {
+        //                sortedList.Add(lowestInt);
+        //                originalList.Remove(lowestInt);
+        //            }
+        //        }
+        //    }
+        //    return sortedList;
+        //}
+        //public static int GetLowestIntFromIntList(CustomList<int> intList)
+        //{
+        //    int lowestInt = intList[0];
+        //    for (int i = 0; i < intList.count; i++)
+        //    {
+        //        if (intList[i] < lowestInt)
+        //        {
+        //            lowestInt = intList[i];
+        //        }
+        //    }
+        //    return lowestInt;
+        //}
 
         public IEnumerator GetEnumerator()
         {
