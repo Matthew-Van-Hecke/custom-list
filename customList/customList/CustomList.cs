@@ -212,28 +212,43 @@ namespace customList
             //Loop through listToSort
             while (listToSort.count > 0)
             {
-                for (int j = 0; j < sortedList.count; j++)
-                {
-                    if (listToSort[0].CompareTo(sortedList[j]) <= 0)
-                    {
-                        sortedList.AddAtIndex(listToSort[0], j);
-                        listToSort.Remove(listToSort[0]);
-                        itemBelongsAtEndOfList = false;
-                        break;
-                    }
-                }
+                itemBelongsAtEndOfList = CheckIfItemBelongsAnywhereOtherThanEndOfSortedList(listToSort, sortedList);
                 if (itemBelongsAtEndOfList)
                 {
-                    CustomList<IComparable>.MoveItemFromToSortedList(listToSort, sortedList, 0);
+                    CustomList<IComparable>.MoveItemToEndOfSortedList(listToSort, sortedList, 0);
                 }
                 itemBelongsAtEndOfList = true;
             }
             return sortedList;
         }
-        public static void MoveItemFromToSortedList(CustomList<T> listToSort, CustomList<T> sortedList, int indexFrom)
+        public static bool CheckIfItemBelongsAnywhereOtherThanEndOfSortedList(CustomList<IComparable> listToSort, CustomList<IComparable> sortedList)
+        {
+            for (int j = 0; j < sortedList.count; j++)
+            {
+                if (listToSort[0].CompareTo(sortedList[j]) <= 0)
+                {
+                    MoveItemToParticularIndexOfSortedList(listToSort, sortedList, 0, j);
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static void MoveItemToEndOfSortedList(CustomList<IComparable> listToSort, CustomList<IComparable> sortedList, int indexFrom)
         {
             sortedList.Add(listToSort[indexFrom]);
             listToSort.Remove(listToSort[indexFrom]);
+        }
+        public static void MoveItemToParticularIndexOfSortedList(CustomList<IComparable> listToSort, CustomList<IComparable> sortedList, int indexFrom, int indexTo)
+        {
+            sortedList.AddAtIndex(listToSort[0], indexTo);
+            listToSort.Remove(listToSort[0]);
+        }
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return underlyingArray[i];
+            }
         }
         //public static CustomList<string> Sort(CustomList<string> listToSort)
         //{
@@ -345,13 +360,5 @@ namespace customList
         //    }
         //    return lowestInt;
         //}
-
-        public IEnumerator GetEnumerator()
-        {
-            for (int i = 0; i < count; i++)
-            {
-                yield return underlyingArray[i];
-            }
-        }
     }
 }
