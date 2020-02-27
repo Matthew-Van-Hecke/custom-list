@@ -121,32 +121,32 @@ namespace customList
             }
             return result;
         }
-        public CustomList<T> Zip(CustomList<T> listToBeZippedIn)
+        public static CustomList<T> Zip(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> resultingList = new CustomList<T>();
-            int countOfLongerList = GetCountOfLongerOfTwoLists(listToBeZippedIn);
+            int countOfLongerList = GetCountOfLongerOfTwoLists(listOne, listTwo);
             for (int i = 0; i< countOfLongerList; i++)
             {
-                if (i < count)
+                if (i < listOne.count)
                 {
-                    resultingList.Add(this[i]);
+                    resultingList.Add(listOne[i]);
                 }
-                if (i < listToBeZippedIn.count)
+                if (i < listTwo.count)
                 {
-                    resultingList.Add(listToBeZippedIn[i]);
+                    resultingList.Add(listTwo[i]);
                 }
             }
             return resultingList;
         }
-        public int GetCountOfLongerOfTwoLists(CustomList<T> otherList)
+        public static int GetCountOfLongerOfTwoLists(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            if (otherList.count > this.count)
+            if (listTwo.count > listOne.count)
             {
-                return otherList.count;
+                return listTwo.count;
             }
             else
             {
-                return this.count;
+                return listOne.count;
             }
         }
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)

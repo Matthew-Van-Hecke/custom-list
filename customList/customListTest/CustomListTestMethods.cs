@@ -571,7 +571,7 @@ namespace customListTest
             listTwo.Add(listTwoValueOne);
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
-            resultingList = listOne.Zip(listTwo);
+            resultingList = CustomList<int>.Zip(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, resultingList.Count);
         }
@@ -596,7 +596,7 @@ namespace customListTest
             listTwo.Add(listTwoValueOne);
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
-            resultingList = listOne.Zip(listTwo);
+            resultingList = CustomList<int>.Zip(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, resultingList[1]);
         }
@@ -621,7 +621,7 @@ namespace customListTest
             listTwo.Add(listTwoValueOne);
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
-            resultingList = listOne.Zip(listTwo);
+            resultingList = CustomList<int>.Zip(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, resultingList[2]);
         }
@@ -648,7 +648,7 @@ namespace customListTest
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
             listTwo.Add(listTwoValueFour);
-            resultingList = listOne.Zip(listTwo);
+            resultingList = CustomList<int>.Zip(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, resultingList.Count);
         }
@@ -675,7 +675,7 @@ namespace customListTest
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
             listTwo.Add(listTwoValueFour);
-            resultingList = listOne.Zip(listTwo);
+            resultingList = CustomList<int>.Zip(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, resultingList[6]);
         }
@@ -702,7 +702,7 @@ namespace customListTest
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
             listTwo.Add(listTwoValueFour);
-            actual = listOne.GetCountOfLongerOfTwoLists(listTwo);
+            actual = CustomList<int>.GetCountOfLongerOfTwoLists(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -731,7 +731,7 @@ namespace customListTest
             listTwo.Add(listTwoValueOne);
             listTwo.Add(listTwoValueTwo);
             listTwo.Add(listTwoValueThree);
-            actual = listOne.GetCountOfLongerOfTwoLists(listTwo);
+            actual = CustomList<int>.GetCountOfLongerOfTwoLists(listOne, listTwo);
             //Assert
             Assert.AreEqual(expected, actual);
         }
