@@ -26,7 +26,7 @@ namespace customList
             customList.Add(fourthStringToAdd);
             customList.Add(fifthStringToAdd);
             customList.Add(sixthStringToAdd);
-            sortedList = CustomList<string>.Alphabetize(customList);
+            sortedList = CustomList<string>.Sort(customList);
             //Assert
             Console.WriteLine(sortedList.ToString());
             Console.ReadLine() ;

@@ -792,7 +792,7 @@ namespace customListTest
             customList.Add(secondValueToAdd);
             customList.Add(thirdValueToAdd);
             customList.Add(fourthValueToAdd);
-            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            sortedList = CustomList<int>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[0]);
         }
@@ -812,7 +812,7 @@ namespace customListTest
             customList.Add(secondValueToAdd);
             customList.Add(thirdValueToAdd);
             customList.Add(fourthValueToAdd);
-            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            sortedList = CustomList<int>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[1]);
         }
@@ -832,7 +832,7 @@ namespace customListTest
             customList.Add(secondValueToAdd);
             customList.Add(thirdValueToAdd);
             customList.Add(fourthValueToAdd);
-            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            sortedList = CustomList<int>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[2]);
         }
@@ -852,7 +852,7 @@ namespace customListTest
             customList.Add(secondValueToAdd);
             customList.Add(thirdValueToAdd);
             customList.Add(fourthValueToAdd);
-            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            sortedList = CustomList<int>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[3]);
         }
@@ -872,7 +872,7 @@ namespace customListTest
             customList.Add(secondValueToAdd);
             customList.Add(thirdValueToAdd);
             customList.Add(fourthValueToAdd);
-            sortedList = CustomList<int>.SortNumericallyLowToHigh(customList);
+            sortedList = CustomList<int>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[3]);
         }
@@ -978,7 +978,7 @@ namespace customListTest
             customList.Add(secondStringToAdd);
             customList.Add(thirdStringToAdd);
             customList.Add(fourthStringToAdd);
-            sortedList = CustomList<string>.Alphabetize(customList);
+            sortedList = CustomList<string>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[0]);
         }
@@ -998,7 +998,7 @@ namespace customListTest
             customList.Add(secondStringToAdd);
             customList.Add(thirdStringToAdd);
             customList.Add(fourthStringToAdd);
-            sortedList = CustomList<string>.Alphabetize(customList);
+            sortedList = CustomList<string>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[1]);
         }
@@ -1018,7 +1018,7 @@ namespace customListTest
             customList.Add(secondStringToAdd);
             customList.Add(thirdStringToAdd);
             customList.Add(fourthStringToAdd);
-            sortedList = CustomList<string>.Alphabetize(customList);
+            sortedList = CustomList<string>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[2]);
         }
@@ -1038,7 +1038,7 @@ namespace customListTest
             customList.Add(secondStringToAdd);
             customList.Add(thirdStringToAdd);
             customList.Add(fourthStringToAdd);
-            sortedList = CustomList<string>.Alphabetize(customList);
+            sortedList = CustomList<string>.Sort(customList);
             //Assert
             Assert.AreEqual(expected, sortedList[3]);
         }
