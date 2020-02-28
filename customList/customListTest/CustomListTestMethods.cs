@@ -551,6 +551,68 @@ namespace customListTest
             Assert.AreEqual(expected, resultingList[1]);
         }
         [TestMethod]
+        public void MinusOperatorOverload_SubtractOneListFromAnother_ValueAtIndexTwoEqualsSeven()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listOneValueFour = 5;
+            int listOneValueFive = 7;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 2;
+            int listTwoValueThree = 6;
+            int listTwoValueFour = 3;
+            int expected = 7;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listOne.Add(listOneValueFour);
+            listOne.Add(listOneValueFive);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listTwo.Add(listTwoValueFour);
+            resultingList = listOne - listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList[2]);
+        }
+        [TestMethod]
+        public void MinusOperatorOverload_SubtractOneListFromAnother_ValueAtIndexTwoEqualsEight()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>();
+            CustomList<int> listTwo = new CustomList<int>();
+            CustomList<int> resultingList;
+            int listOneValueOne = 1;
+            int listOneValueTwo = 2;
+            int listOneValueThree = 3;
+            int listOneValueFour = 5;
+            int listOneValueFive = 8;
+            int listTwoValueOne = 4;
+            int listTwoValueTwo = 3;
+            int listTwoValueThree = 6;
+            int listTwoValueFour = 2;
+            int expected = 8;
+            //Act
+            listOne.Add(listOneValueOne);
+            listOne.Add(listOneValueTwo);
+            listOne.Add(listOneValueThree);
+            listOne.Add(listOneValueFour);
+            listOne.Add(listOneValueFive);
+            listTwo.Add(listTwoValueOne);
+            listTwo.Add(listTwoValueTwo);
+            listTwo.Add(listTwoValueThree);
+            listTwo.Add(listTwoValueFour);
+            resultingList = listOne - listTwo;
+            //Assert
+            Assert.AreEqual(expected, resultingList[2]);
+        }
+        [TestMethod]
         public void Zip_ZipTwoListsOfEqualCountTogether_CountOfResultingListEqualsSumOfCountsOfTwoComponentLists()
         {
             //Arrange

@@ -57,14 +57,11 @@ namespace customList
         //Member Methods
         public void Add(T item)
         {
-            //If the array is full, copy the values over to a new array of twice the size, and insert the newest value to be added at the next index
             if (count == capacity)
             {
                 doubleLengthOfUnderlyingArray();
             }
-            //Added item should be put in the next slot
             underlyingArray[count] = item;
-            //Count should increment
             count++;
         }
         public void AddAtIndex(T item, int index)
@@ -85,8 +82,6 @@ namespace customList
         {
             int positionOfItem;
             positionOfItem = FindIndexOfGivenItem(item);
-            //Find first instance of value and remove from array
-            //Loop through array starting at that value through to the second to last position replacing each value with the one immediately following it
             for (int i = positionOfItem; i < capacity; i++)
             {
                 try
@@ -98,7 +93,6 @@ namespace customList
                     underlyingArray[i] = default(T);
                 }
             }
-            //Decrement count
             count--;
         }
         public int FindIndexOfGivenItem(T item)
@@ -182,15 +176,20 @@ namespace customList
         }
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
+            CustomList<T> temporaryList = new CustomList<T>();
             for (int i = 0; i < listOne.count; i++)
             {
                 for (int j = 0; j < listTwo.count; j++)
                 {
                     if (listOne[i].Equals(listTwo[j]))
                     {
-                        listOne.Remove(listOne[i]);
+                        temporaryList.Add(listOne[i]);
                     }
                 }
+            }
+            foreach (T itemToRemove in temporaryList)
+            {
+                listOne.Remove(itemToRemove);
             }
             return listOne;
         }
